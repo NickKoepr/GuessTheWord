@@ -1,0 +1,12 @@
+:root {
+    --title-color: #505050;
+    --tile-color: #f5f3ea;
+    --input-color: #ffc5a6;
+    --input-select-color: #ff975f;
+    --button-color: #f98e72;
+    --font: "Lexend", sans-serif;
+}
+
+body {
+    margin: 0px;
+}

@@ -1,0 +1,36 @@
+.guess-field {
+    margin: 50px;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.5rem;
+    border: solid;
+    background-color: var(--input-color);
+    border: none;
+    border-radius: 10px;
+
+    font-family: var(--font);
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.guess-field:focus {
+    outline: none;
+
+    /*Think no outline is better here*/
+    /* outline: 2px solid var(--input-select-color); */
+}
+
+.submit {
+    padding: 15px 30px;
+    background-color: var(--button-color);
+    font-family: var(--font);
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+}
+
+.submit:hover {
+    background-color: var(--input-color);
+}

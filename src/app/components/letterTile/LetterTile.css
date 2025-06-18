@@ -1,0 +1,10 @@
+.tile {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2em;
+    height: 2em;
+    font-size: 2.3rem;
+    background-color: var(--tile-color);
+    border-radius: 15%;
+}
