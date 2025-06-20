@@ -1,4 +1,4 @@
-import "./title.css";
+import "./Title.css";
 
 /**
  * Title component that renders a H1 title.
