@@ -8,3 +8,11 @@
     background-color: var(--tile-color);
     border-radius: 15%;
 }
+
+.correct {
+    background-color: var(--correct-color);
+}
+
+.in-word {
+    background-color: var(--in-word-color);
+}

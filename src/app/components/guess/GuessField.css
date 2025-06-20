@@ -34,3 +34,9 @@
 .submit:hover {
     background-color: var(--input-color);
 }
+
+.guess-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
