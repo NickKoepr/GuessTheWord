@@ -4,20 +4,41 @@ import GuessField from "./components/guess/GuessField";
 import LetterRow from "./components/letterRow/LetterRow";
 import LetterTile from "./components/letterTile/LetterTile";
 import Title from "./components/title/Title";
-import { checkWord, initGame } from "../model/Game";
-import ErrorMessage from "./components/error/ErrorMessage";
+import { checkWord, initGame, isFinished } from "../model/Game";
+import StatusMessage from "./components/message/StatusMessage";
+import DefaultButton from "./components/common/button/DefaultButton";
 
 function App() {
   const [gameState, setGameState] = useState(() => initGame());
+  const [isGameFinished, setGameFinished] = useState(false);
   const [errorState, setErrorState] = useState<string | null>(null);
 
+  // Function checks the current word and checks if the game is finished.
+  // When the word is not found inside the pre-defined word list, an error is
+  // thrown, which is catched here.
   const makeGuess = (guessedWord: string) => {
     try {
-      setGameState(checkWord(gameState, guessedWord));
+      const gs = checkWord(gameState, guessedWord);
+      setGameState(gs);
+      if (isFinished(gs)) {
+        setGameFinished(true);
+      }
     } catch (exception: unknown) {
       if (exception instanceof Error) {
         setErrorState(exception.message);
       }
+    }
+  };
+
+  const startNewgame = () => {
+    setGameFinished(false);
+    setGameState(initGame());
+  };
+
+  const onInput = () => {
+    setErrorState(null);
+    if (isGameFinished) {
+      startNewgame();
     }
   };
 
@@ -26,7 +47,12 @@ function App() {
       <div className="game-container">
         <Title title="Guess the word"></Title>
 
-        {errorState != null && <ErrorMessage message={errorState} />}
+        <div className="status-message">
+          {errorState != null && <StatusMessage message={errorState} />}
+          {isGameFinished && (
+            <StatusMessage message="You have guessed the word! Start a new game by typing or with the 'New game' button!" />
+          )}
+        </div>
 
         <LetterRow>
           {gameState.lastGuess.map((guess, index) => (
@@ -38,7 +64,17 @@ function App() {
           ))}
         </LetterRow>
 
-        <GuessField onGuessedWordSubmit={makeGuess} />
+        <GuessField
+          isFinished={isGameFinished}
+          onGuessedWordSubmit={makeGuess}
+          onInput={onInput}
+        />
+
+        <div className="new-word-button">
+          {isGameFinished && (
+            <DefaultButton onClick={startNewgame} label="New word" />
+          )}
+        </div>
       </div>
     </>
   );

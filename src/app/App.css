@@ -15,3 +15,11 @@
 .hidden {
     display: none;
 }
+
+.new-word-button {
+    margin-top: 20px;
+}
+
+.status-message {
+    margin-bottom: 25px;
+}

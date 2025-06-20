@@ -4,7 +4,11 @@ import "./LetterRow.css";
 export default function LetterRow({ children }: { children: ReactNode }) {
   return (
     <>
-      <div className="letter-row">{children}</div>
+      <div aria-live="polite">
+        <ul className="letter-row" aria-live="polite">
+          {children}
+        </ul>
+      </div>
     </>
   );
 }
