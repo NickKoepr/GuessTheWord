@@ -18,7 +18,7 @@ export default function LetterTile({ letter, letterState }: LetterProps) {
       break;
     }
     case LetterState.IN_WORD: {
-      classNames += " correct";
+      classNames += " in-word";
       ariaLabel += " in word";
       break;
     }
