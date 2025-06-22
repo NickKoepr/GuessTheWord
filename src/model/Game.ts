@@ -1,7 +1,6 @@
 import { LetterState, type Letter } from "./Letter";
 import { words as wordsEN } from "../../words/words-en.json";
-import { words as wordsNLA } from "../../words/words-nl.json";
-import { words as wordsNL } from "../../words/words-debug.json";
+import { words as wordsNL } from "../../words/words-nl.json";
 
 export type Language = "nl" | "en";
 
@@ -35,8 +34,6 @@ export function checkWord(game: Game, guessedWord: string): Game {
           ? [findex]
           : [],
       );
-
-      console.log(lettersIndexes.length);
 
       for (let i = 0; i < lettersIndexes.length; i++) {
         // Get how many IN_WORD marks already have been made for this letter.
