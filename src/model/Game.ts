@@ -1,7 +1,6 @@
 import { LetterState, type Letter } from "./Letter";
 import { words as wordsEN } from "../../words/words-en.json";
-import { words as wordsNL } from "../../words/words-debug.json";
-import { words as wordsNAL } from "../../words/words-nl.json";
+import { words as wordsNL } from "../../words/words-nl.json";
 
 export type Language = "nl" | "en";
 
@@ -29,29 +28,24 @@ export function checkWord(game: Game, guessedWord: string): Game {
     if (finalWordLetters[index] == letter) {
       letterState = LetterState.CORRECT;
     } else {
-      // If not, get all positions of the same, remaning letters.
-      // This is needed to determine if the letter is in the word or not.
-      const lettersIndexes = finalWordLetters.flatMap((fletter, index) =>
-        fletter == letter ? [index] : [],
+      // If not, get all positions of the same, misplaced letters.
+      const lettersIndexes = finalWordLetters.flatMap((fletter, findex) =>
+        fletter == letter && finalWordLetters[findex] != letters[findex]
+          ? [findex]
+          : [],
       );
 
-      for (const letterIndex in lettersIndexes) {
-        if (finalWordLetters[letterIndex] == letters[letterIndex]) {
-          continue;
-        }
-
-        // Get the count of other letters that are placed incorrectly in the word.
-        const letterCount = finalWordLetters.filter(
-          (l, index) =>
-            l == letter && finalWordLetters[index] != letters[index],
-        ).length;
+      for (let i = 0; lettersIndexes.length; i++) {
+        // Get how many IN_WORD marks already have been made for this letter.
+        // When all misplaced letters have already been marked, this letter is not
+        // marked as IN_WORD anymore.
         const hintedLetterCount = hintedLetters.get(letter);
 
-        // When the hitedLetterCount is higher or equal then the letterCount, all in word
-        // positions have been marked (or are correct).
+        // When the hitedLetterCount is higher or equal then the letterCount, all IN_WORD
+        // positions for this have been marked (or are correctly placed).
         if (
           hintedLetterCount != undefined &&
-          hintedLetterCount >= letterCount
+          hintedLetterCount >= lettersIndexes.length
         ) {
           continue;
         }
