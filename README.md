@@ -1,4 +1,5 @@
 # Guess The Word game
+[![Deploy application to Github Pages](https://github.com/NickKoepr/GuessTheWord/actions/workflows/deployment.yml/badge.svg?branch=main)](https://github.com/NickKoepr/GuessTheWord/actions/workflows/deployment.yml)
 
 A really simple game where you have to guess the correct word.
 The game is playable in English and Dutch.
