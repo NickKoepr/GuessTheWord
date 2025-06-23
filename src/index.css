@@ -1,11 +1,18 @@
 :root {
     --title-color: #505050;
     --tile-color: #f5f3ea;
+    --outline-tile-color: #c9c7bd;
     --input-color: #ffc5a6;
+    --outline-input-color: #d1a086;
     --input-select-color: #ff975f;
     --button-color: #f98e72;
+    --outline-button-color: #cf735b;
     --correct-color: #88e788;
+    --outline-correct-color: #66b066;
     --in-word-color: #fada7a;
+    --outline-in-word-color: #c7ae61;
+    --selector-color: #f5f3ea;
+    --outline-selector-color: #c9c7bd;
     --font: "Lexend", sans-serif;
 }
 

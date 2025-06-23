@@ -17,6 +17,7 @@ export default function DefaultSelector({
         value={selected}
         onChange={(e) => onSelectChange(e.target.value)}
         aria-label="Select the language you want to play this game in."
+        className="default-selector"
       >
         {items.map((item) => (
           <option key={item} value={item}>

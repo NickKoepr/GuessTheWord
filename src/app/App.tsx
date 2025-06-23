@@ -59,7 +59,7 @@ function App() {
   return (
     <>
       <DefaultSelector
-        items={["en", "nl"]}
+        items={["EN", "NL"]}
         selected={selectedLanguage}
         onSelectChange={(lang) => changeLanguage(lang as Language)}
       />
