@@ -6,6 +6,10 @@ export type Language = "nl" | "en";
 
 export let language: Language = "nl";
 
+export function setLanguage(lang: Language) {
+  language = lang;
+}
+
 export type Game = {
   language: Language;
   finalWord: string;
