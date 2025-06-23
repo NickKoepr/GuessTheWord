@@ -1,9 +1,10 @@
 .default-selector {
     margin: 20px;
-    background: var(--selector-color);
+    background-color: var(--selector-color);
     padding: 10px 20px 10px 20px;
     border: 2px solid var(--outline-selector-color);
-
+    font-family: var(--font);
+    font-weight: 650;
     /* Disable 'gradient' effect on Safari */
     -webkit-appearance: none;
 }

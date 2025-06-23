@@ -11,9 +11,9 @@ import {
   setLanguage,
   type Language,
 } from "../model/Game";
-import StatusMessage from "./components/message/StatusMessage";
 import DefaultButton from "./components/common/button/DefaultButton";
 import DefaultSelector from "./components/common/selector/DefaultSelector";
+import StatusMessage from "./components/common/message/StatusMessage";
 
 function App() {
   const [gameState, setGameState] = useState(() => initGame());

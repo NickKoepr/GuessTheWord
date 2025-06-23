@@ -4,7 +4,7 @@ import { words as wordsNL } from "../../words/words-nl.json";
 
 export type Language = "nl" | "en";
 
-export let language: Language = "nl";
+export let language: Language = "en";
 
 export function setLanguage(lang: Language) {
   language = lang;
@@ -81,7 +81,7 @@ export function isFinished(game: Game): boolean {
 
 export function initGame(): Game {
   const word = getRandomWord(language).toLowerCase();
-  console.log(word);
+
   return {
     language: language,
     finalWord: word,

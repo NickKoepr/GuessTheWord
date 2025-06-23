@@ -7,7 +7,3 @@
     border: 2px solid var(--outline-button-color);
     border-radius: 10px;
 }
-
-.submit:hover {
-    background-color: var(--input-color);
-}
