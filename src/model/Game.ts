@@ -81,7 +81,7 @@ export function isFinished(game: Game): boolean {
 
 export function initGame(): Game {
   const word = getRandomWord(language).toLowerCase();
-  console.log(word);
+
   return {
     language: language,
     finalWord: word,
