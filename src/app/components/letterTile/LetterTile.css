@@ -8,6 +8,7 @@
     background-color: var(--tile-color);
     border-radius: 15%;
     border: 2px solid var(--outline-tile-color);
+    transition-duration: 0.2s;
 }
 
 .correct {
